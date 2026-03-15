@@ -26,9 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%zo65n=x8&!v_o20njs6xmn0c#ody^7$&g=)3r*@y3(+-4wc=k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+import os
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,4 +129,10 @@ CORS_ALLOWED_ORIGINS = [
 
 # ML model path
 import os
+ML_MODEL_PATH = os.path.join(BASE_DIR, '..', 'ml_model', 'saved_model')
+
+# Production static files
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# ML Model path for production
 ML_MODEL_PATH = os.path.join(BASE_DIR, '..', 'ml_model', 'saved_model')
