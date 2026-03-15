@@ -125,8 +125,9 @@ STATIC_URL = 'static/'
 # Allow React to talk to Django
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "https://loan-risk-app.vercel.app",
 ]
-
+CORS_ALLOW_ALL_ORIGINS = True
 # ML model path
 import os
 ML_MODEL_PATH = os.path.join(BASE_DIR, '..', 'ml_model', 'saved_model')
